@@ -1,0 +1,32 @@
+{% extends "home/base.html" %}
+{% block content %}
+        <h2>Your Carts</h2>
+        <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">S.no</th>
+                    <th scope="col">Product Type</th>
+                    <th scope="col">Product Image</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Action</th>
+                    
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for cartitems in carts.cart_items.all %}  
+                  <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{cartitems.product}}  </td>
+                    <td><img src="media/{{cartitems.product.image}}" alt="" style="width:50%; height: 60px;"></td>
+                    <td>{{cartitems.product.product_name}} </td>
+                    <td>{{cartitems.product.price}} </td>
+                    <td><a href="{% url 'remove_cart_item' cartitems.uid %}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                  </tr>
+                  {% endfor %}
+                  <tr><td></td><td></td><td></td><td></td><td>Grand Total: {{ carts.get_cart_total }}</td>
+                    <td><a class="btn btn-primary" href="{{paymentlink}}?paidid={{code}}">Order And Pay</a></td></tr>   
+                </tbody>
+              </table>
+{% endblock %}

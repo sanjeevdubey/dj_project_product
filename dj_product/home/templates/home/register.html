@@ -1,0 +1,33 @@
+{% extends "home/base.html" %}
+{% block content %}
+<h2>Register Here</h2>
+<form action="" method="POST">
+  {% csrf_token %}
+    <div class="form-group">
+        <label for="exampleInputEmail1">Fisrt Name</label>
+        <input type="name" class="form-control" name="first_name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter First Name">
+        
+      </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Last Name</label>
+        <input type="name" class="form-control" name="last_name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Last Name">
+        
+      </div>  
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        
+      </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Username</label>
+      <input type="name" class="form-control" name="username" id="username" aria-describedby="emailHelp" placeholder="Enter Username">
+     
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Enter Password">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

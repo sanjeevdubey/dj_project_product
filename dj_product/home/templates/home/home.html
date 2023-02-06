@@ -1,0 +1,22 @@
+{% extends "home/base.html" %}
+{% block content %}
+        <h2>On Line Pizza</h2>
+       
+        <div class="row">
+          {% for plist in productlist %}  
+          <div class="col-md-4">
+            <div class="thumbnail">
+                <img src="media/{{plist.image}}" alt="{{plist.product_name}}" style="width:100%; height: 230px;">
+                <div class="caption">
+                  <h3>{{plist.product_name}}</h3>
+                  <p>Price:{{plist.price}} | Category {{plist.category}}</p> 
+                  {% if user.is_authenticated %} 
+                    <a href="{% url 'add_cart' plist.uid %}" class="btn btn-success">Cart</a>
+                  {% endif %}
+                  <button type="button" class="btn btn-danger">20% Discount</button>  
+                </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+{% endblock %}
